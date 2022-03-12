@@ -2,7 +2,7 @@ import * as  j from 'jscodeshift';
 import * as  writeValue from './writeValue';
 import * as setKeyQuoteUsage from './setKeyQuoteUsage';
 
-function load(src) {
+export function load(src) {
   const ast = toAst(src)
   const root = ast.nodes()[0].program.body[0].expression
 
@@ -59,5 +59,3 @@ function toAst(src) {
   // no array or object exist in the JSON5
   return j('x={}')
 }
-
-module.exports = { load }

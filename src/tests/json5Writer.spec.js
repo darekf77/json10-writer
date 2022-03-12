@@ -1,5 +1,5 @@
-const j = require('jscodeshift')
-const json5Writer = require('../src/index.js')
+import * as j from 'jscodeshift';
+import * as  json5Writer from '../lib';
 
 it('writes an array to empty source', () => {
   const writer = json5Writer.load('')

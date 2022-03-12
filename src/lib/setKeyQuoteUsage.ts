@@ -1,6 +1,6 @@
 import * as  j from 'jscodeshift';
 
-function setKeyQuoteUsage(ast, enabled) {
+export function setKeyQuoteUsage(ast, enabled) {
   return j(ast.toSource())
     .find(j.ObjectExpression)
     .forEach(path => {
@@ -25,5 +25,3 @@ function unquoteKey(prop) {
     prop.key = j.identifier(prop.key.value)
   }
 }
-
-module.exports = setKeyQuoteUsage

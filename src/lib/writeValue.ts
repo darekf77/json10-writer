@@ -1,7 +1,7 @@
 import * as  j from 'jscodeshift';
 
 // @param {j.ObjectExpression|j.ArrayExpression|j.Literal} node
-function writeValue(node, value) {
+export function writeValue(node, value) {
   if (value === undefined) return node
 
   node = nodeTypeMatchesValue(node, value) ? node : createEmptyNode(value)
@@ -83,5 +83,3 @@ function isObject(value) {
 function isArray(value) {
   return Array.isArray(value)
 }
-
-module.exports = writeValue
