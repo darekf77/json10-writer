@@ -1,4 +1,4 @@
-import * as  j from 'jscodeshift';
+import * as  jscodeshift from 'jscodeshift';
 
 // @param {j.ObjectExpression|j.ArrayExpression|j.Literal} node
 export function writeValue(node, value) {
@@ -26,12 +26,12 @@ function nodeTypeMatchesValue(node, value) {
 
 function createEmptyNode(value) {
   if (isArray(value)) {
-    return j.arrayExpression([])
+    return jscodeshift.arrayExpression([])
   }
   if (isObject(value)) {
-    return j.objectExpression([])
+    return jscodeshift.objectExpression([])
   }
-  return j.literal('')
+  return jscodeshift.literal('')
 }
 
 function writeArray(node, array) {
@@ -53,7 +53,7 @@ function writeObj(node, obj) {
       if (obj[key] === undefined) return
       const newKey = getNewPropertyKey(node.properties, key)
       const newValue = writeValue(undefined, obj[key])
-      const newProperty = j.property('init', newKey, newValue)
+      const newProperty = jscodeshift.property('init', newKey, newValue)
       newProperties.push(newProperty)
     }
   })
@@ -67,13 +67,13 @@ function findPropertyByKey(properties, key) {
 function getNewPropertyKey(properties, key) {
   // if the key has invalid characters, it has to be a string literal
   if (key.match(/[^a-zA-Z0-9_]/)) {
-    return j.literal(key)
+    return jscodeshift.literal(key)
   }
 
   // infer whether to use a literal or identifier by looking at the other keys
   const useIdentifier =
     properties.length === 0 || properties.some(p => p.key.type === 'Identifier')
-  return useIdentifier ? j.identifier(key) : j.literal(key)
+  return useIdentifier ? jscodeshift.identifier(key) : jscodeshift.literal(key)
 }
 
 function isObject(value) {

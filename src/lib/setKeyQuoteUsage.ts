@@ -1,8 +1,8 @@
-import * as  j from 'jscodeshift';
+import * as  jscodeshift from 'jscodeshift';
 
 export function setKeyQuoteUsage(ast, enabled) {
-  return j(ast.toSource())
-    .find(j.ObjectExpression)
+  return jscodeshift(ast.toSource())
+    .find(jscodeshift.ObjectExpression)
     .forEach(path => {
       path.value.properties.forEach(prop => {
         if (enabled) {
@@ -16,12 +16,12 @@ export function setKeyQuoteUsage(ast, enabled) {
 
 function quoteKey(prop) {
   if (prop.key.type === 'Identifier') {
-    prop.key = j.literal(prop.key.name)
+    prop.key = jscodeshift.literal(prop.key.name)
   }
 }
 
 function unquoteKey(prop) {
   if (prop.key.type === 'Literal') {
-    prop.key = j.identifier(prop.key.value)
+    prop.key = jscodeshift.identifier(prop.key.value)
   }
 }

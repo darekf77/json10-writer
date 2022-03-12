@@ -1,6 +1,6 @@
-import * as  j from 'jscodeshift';
-import * as  writeValue from './writeValue';
-import * as setKeyQuoteUsage from './setKeyQuoteUsage';
+import * as  jscodeshift from 'jscodeshift';
+import { writeValue } from './writeValue';
+import { setKeyQuoteUsage } from './setKeyQuoteUsage';
 
 export function load(src) {
   const ast = toAst(src)
@@ -8,11 +8,10 @@ export function load(src) {
 
   // @param {Object|Array} value
   function write(value) {
-    // @ts-ignore
     root.right = writeValue(root.right, value)
   }
 
-  function toSource(options = {}) {
+  function toSource(options = {} as any) {
     // set default options
     options = Object.assign(
       {
@@ -22,7 +21,6 @@ export function load(src) {
       options
     )
 
-    // @ts-ignore
     const sourceAst = (options.quoteKeys === undefined)
       ? ast // @ts-ignore
       : setKeyQuoteUsage(ast, options.quoteKeys)
@@ -44,7 +42,7 @@ export function load(src) {
     )
   }
 
-  return { write, toSource, toJSON, ast: j(root.right) }
+  return { write, toSource, toJSON, ast: jscodeshift(root.right) }
 }
 
 function toAst(src) {
@@ -53,9 +51,9 @@ function toAst(src) {
   if (expressionStart) {
     // hackily insert "x=" so the JSON5 becomes valid JavaScript
     const astSrc = src.replace(/^\s*([{\[])/m, 'x=$1')
-    return j(astSrc)
+    return jscodeshift(astSrc)
   }
 
   // no array or object exist in the JSON5
-  return j('x={}')
+  return jscodeshift('x={}')
 }
