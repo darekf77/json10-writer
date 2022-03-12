@@ -1,6 +1,6 @@
-const j = require('jscodeshift')
-const writeValue = require('./writeValue')
-const setKeyQuoteUsage = require('./setKeyQuoteUsage')
+import * as  j from 'jscodeshift';
+import * as  writeValue from './writeValue';
+import * as setKeyQuoteUsage from './setKeyQuoteUsage';
 
 function load(src) {
   const ast = toAst(src)
@@ -8,6 +8,7 @@ function load(src) {
 
   // @param {Object|Array} value
   function write(value) {
+    // @ts-ignore
     root.right = writeValue(root.right, value)
   }
 
@@ -21,10 +22,10 @@ function load(src) {
       options
     )
 
-    const sourceAst =
-      options.quoteKeys === undefined
-        ? ast
-        : setKeyQuoteUsage(ast, options.quoteKeys)
+    // @ts-ignore
+    const sourceAst = (options.quoteKeys === undefined)
+      ? ast // @ts-ignore
+      : setKeyQuoteUsage(ast, options.quoteKeys)
 
     // strip the "x=" prefix
     return sourceAst.toSource(options).replace(/^x=([{\[])/m, '$1')

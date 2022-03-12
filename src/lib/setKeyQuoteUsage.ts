@@ -1,4 +1,4 @@
-const j = require('jscodeshift')
+import * as  j from 'jscodeshift';
 
 function setKeyQuoteUsage(ast, enabled) {
   return j(ast.toSource())

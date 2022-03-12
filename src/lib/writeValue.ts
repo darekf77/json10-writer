@@ -1,4 +1,4 @@
-const j = require('jscodeshift')
+import * as  j from 'jscodeshift';
 
 // @param {j.ObjectExpression|j.ArrayExpression|j.Literal} node
 function writeValue(node, value) {
@@ -19,6 +19,7 @@ function writeValue(node, value) {
 function nodeTypeMatchesValue(node, value) {
   if (value === undefined || node === undefined) return false
   if (isArray(value)) return node.type === 'ArrayExpression'
+  if (value === null) return node.type === 'Literal'
   if (isObject(value)) return node.type === 'ObjectExpression'
   return node.type === 'Literal'
 }
