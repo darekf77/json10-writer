@@ -3,7 +3,7 @@
   overrided: {
     linkedFolders: [],
     ignoreDepsPattern: [],
-    includeAsDev: "*",
+    includeAsDev: [],
     includeOnly: ["jscodeshift"],
     dependencies: {},
   },
