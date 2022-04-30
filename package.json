@@ -239,7 +239,5 @@
     "watch": "1.0.2",
     "zone.js": "~0.11.4"
   },
-  "lastBuildTagHash": "8d2a94310c9740a38a7bfc620e8da623d12f1129",
-  "license": "MIT",
-  "private": false
+  "lastBuildTagHash": "8d2a94310c9740a38a7bfc620e8da623d12f1129"
 }
