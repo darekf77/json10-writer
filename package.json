@@ -145,7 +145,7 @@
     "jasmine-core": "4.0.0",
     "json-stringify-safe": "5.0.1",
     "json10": "~13.0.22",
-    "json10-writer": "~13.0.19",
+    "json10-writer": "~13.0.20",
     "json5": "2.1.3",
     "json5-writer": "0.2.0",
     "karma": "6.3.0",
@@ -240,5 +240,5 @@
     "watch": "1.0.2",
     "zone.js": "~0.11.4"
   },
-  "lastBuildTagHash": "49ae828c0604fe7afa680567a129241ad6007fe0"
+  "lastBuildTagHash": "76f4cc19ccb51ab2c3cfaebf1150c1484fd2ffe3"
 }
