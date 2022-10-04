@@ -1,5 +1,6 @@
 {
   resources: [],
+
   overrided: {
     linkedFolders: [],
     ignoreDepsPattern: [],
@@ -7,12 +8,16 @@
     includeOnly: ["jscodeshift"],
     dependencies: {},
   },
+
   linkedProjects: [],
+  linkedRepos: [],
+
   libReleaseOptions: {
     nodts: false,
     obscure: false,
     ugly: false,
   },
+
   type: "isomorphic-lib",
   version: "v3",
 }
