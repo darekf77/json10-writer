@@ -143,7 +143,7 @@
     "jasmine-core": "4.0.0",
     "json-stringify-safe": "5.0.1",
     "json10": "~13.1.41",
-    "json10-writer": "~13.1.36",
+    "json10-writer": "~13.1.37",
     "json5": "2.1.3",
     "json5-writer": "0.2.0",
     "jszip": "3.10.1",
@@ -245,5 +245,5 @@
   },
   "name": "json10-writer",
   "version": "13.1.37",
-  "lastBuildTagHash": "489b0fd092a416afeec042a30e1b91567ec69ee0"
+  "lastBuildTagHash": "e5e036b59ccd4b00982ec28c48bd0ba07de92f30"
 }
