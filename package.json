@@ -174,7 +174,7 @@
     "jimp": "0.22.8",
     "json-stringify-safe": "5.0.1",
     "json10": "~16.0.48",
-    "json10-writer": "~16.0.43",
+    "json10-writer": "~16.0.44",
     "json5": "2.2.1",
     "json5-writer": "0.2.0",
     "jszip": "3.10.1",
@@ -279,5 +279,5 @@
   },
   "name": "json10-writer",
   "version": "16.0.44",
-  "lastBuildTagHash": "ed2ed2b1fbbeac4d8a4fb59ce2dc057b56a8b633"
+  "lastBuildTagHash": "d258c838a1cb462810f4ddf5fb24dffff0665795"
 }
