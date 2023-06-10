@@ -1,4 +1,29 @@
 {
+  "tnp": {
+    "resources": [],
+    "overrided": {
+      "linkedFolders": [],
+      "ignoreDepsPattern": [],
+      "includeAsDev": [],
+      "includeOnly": [
+        "jscodeshift"
+      ],
+      "dependencies": {},
+      "npmFixes": []
+    },
+    "linkedProjects": [],
+    "smartContainerBuildTarget": "",
+    "linkedRepos": [],
+    "libReleaseOptions": {
+      "nodts": false,
+      "obscure": false,
+      "ugly": false,
+      "includeNodeModules": false
+    },
+    "smartContainerTarget": "",
+    "type": "isomorphic-lib",
+    "version": "v4"
+  },
   "dependencies": {
     "jscodeshift": "0.6.3"
   },
