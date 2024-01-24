@@ -195,7 +195,7 @@
     "joi": "17.9.2",
     "json-stringify-safe": "5.0.1",
     "json10": "~16.5.8",
-    "json10-writer": "~16.5.8",
+    "json10-writer": "~16.5.9",
     "json5": "2.2.1",
     "json5-writer": "0.2.0",
     "jszip": "3.10.1",
@@ -306,5 +306,5 @@
   },
   "name": "json10-writer",
   "version": "16.5.9",
-  "lastBuildTagHash": "7f9b266b1b53dca8655295ebcbe7c9ddc611b546"
+  "lastBuildTagHash": "3e8edcf74251c8404b6d61871ddf65cda41d7e68"
 }
