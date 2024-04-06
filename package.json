@@ -21,7 +21,8 @@
       "includeNodeModules": false,
       "cliBuildNoDts": false,
       "cliBuildObscure": false,
-      "cliBuildIncludeNodeModules": false
+      "cliBuildIncludeNodeModules": false,
+      "cliBuildUglify": false
     },
     "smartContainerTarget": "",
     "type": "isomorphic-lib",
@@ -309,5 +310,6 @@
   },
   "name": "json10-writer",
   "version": "16.5.22",
-  "lastBuildTagHash": "d266ab9efe69bda815fc26bb6d18e8057033f82b"
+  "lastBuildTagHash": "d266ab9efe69bda815fc26bb6d18e8057033f82b",
+  "main": "dist/app.electron.js"
 }
