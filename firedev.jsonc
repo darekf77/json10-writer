@@ -7,7 +7,7 @@
     "includeAsDev": [],
     "includeOnly": ["jscodeshift"],
     "dependencies": {},
-    "npmFixes": [],
+    "npmFixes": []
   },
 
   "smartContainerBuildTarget": "",
@@ -21,10 +21,10 @@
     "cliBuildNoDts": false,
     "cliBuildObscure": false,
     "cliBuildIncludeNodeModules": false,
-    "cliBuildUglify": false,
+    "cliBuildUglify": false
   },
 
   "smartContainerTarget": "",
   "type": "isomorphic-lib",
-  "version": "v16",
+  "version": "v18"
 }
