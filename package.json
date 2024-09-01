@@ -330,7 +330,7 @@
     "zone.js": "~0.13.0"
   },
   "name": "json10-writer",
-  "version": "18.0.10",
+  "version": "18.0.11",
   "lastBuildTagHash": "eb6c65782edff545106f63f8067256a99ecef7eb",
   "main": "dist/app.electron.js"
 }
