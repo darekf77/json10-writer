@@ -1,6 +1,6 @@
 {
   "name": "json10-writer",
-  "version": "18.0.24",
+  "version": "18.0.25",
   "author": "Dariusz Filipiak",
   "dependencies": {
     "@angular-builders/custom-webpack": "~18.0.0",
