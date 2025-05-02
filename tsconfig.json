@@ -4,10 +4,16 @@
     "strictNullChecks": false,
     "rootDir": "./src",
     "paths": {
-      "json10-writer": [
+      "@lib": [
         "./src/lib"
       ],
-      "json10-writer/*": [
+      "@lib/*": [
+        "./src/lib/*"
+      ],
+      "json10-writer/src": [
+        "./src/lib"
+      ],
+      "json10-writer/src/*": [
         "./src/lib/*"
       ]
     }
