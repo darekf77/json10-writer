@@ -1,34 +1,51 @@
-//#region @notForNpm
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+
+//#region  json10-writer component
 //#region @browser
-import { NgModule } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
+@Component({ template: 'hello world fromr json10-writer' })
+export class Json10WriterComponent {}
+//#endregion
+//#endregion
 
-@Component({
-selector: 'app-json10-writer',
-template: 'hello from json10-writer'
-})
-export class Json10WriterComponent implements OnInit {
-constructor() { }
-
-ngOnInit() { }
-}
-
+//#region  json10-writer module
+//#region @browser
 @NgModule({
-imports: [],
-exports: [Json10WriterComponent],
-declarations: [Json10WriterComponent],
-providers: [],
+  declarations: [Json10WriterComponent],
+  imports: [CommonModule],
+  exports: [Json10WriterComponent],
 })
-export class Json10WriterModule { }
+export class Json10WriterModule {}
 //#endregion
-
-//#region @backend
-async function start(port: number)  {
-
-}
-
-export default start;
-
-//#endregion
-
 //#endregion
