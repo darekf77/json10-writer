@@ -2,15 +2,17 @@
   "type": "isomorphic-lib",
   "version": "v19",
   "dependenciesNamesForNpmLib": ["jscodeshift"],
+  "appId": "com.domain.example.json10-writer",
 
   "autoReleaseConfigAllowedItems": [{
     "artifactName": "npm-lib-and-cli-tool"
   }],
 
   "resources": [],
+
   "packageJsonOverride": {
     "author": "Dariusz Filipiak",
-
-    "scripts": {}
+    "scripts": {},
+    "description": "Description for json10-writer. Hello world!"
   }
 }
