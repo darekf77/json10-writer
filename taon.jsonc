@@ -4,16 +4,20 @@
   "dependenciesNamesForNpmLib": ["jscodeshift"],
   "appId": "com.domain.example.json10-writer",
 
-  "autoReleaseConfigAllowedItems": [{
-    "artifactName": "npm-lib-and-cli-tool",
-    "taskName": "npm"
-  }],
+  "autoReleaseConfigAllowedItems": [
+    {
+      "artifactName": "npm-lib-and-cli-tool",
+      "taskName": "npm",
+    },
+  ],
 
+  "isomorphicDependenciesForNpmLib": [],
+  "peerDependenciesNamesForNpmLib": [],
   "resources": [],
 
   "packageJsonOverride": {
     "author": "Dariusz Filipiak",
     "description": "Description for json10-writer. Hello world!",
-    "scripts": {}
-  }
+    "scripts": {},
+  },
 }
