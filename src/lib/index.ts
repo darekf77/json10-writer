@@ -1,14 +1,27 @@
-import * as  jscodeshift from 'jscodeshift';
+import * as jscodeshift from 'jscodeshift';
 import { writeValue } from './writeValue';
 import { setKeyQuoteUsage } from './setKeyQuoteUsage';
 
+export namespace JSON5EditorExampleNamespace {
+  export type AST = jscodeshift.Collection<
+    jscodeshift.ObjectExpression | jscodeshift.ArrayExpression
+  >;
+
+  export interface LoadResult {
+    write: (value: Object | Array<any>) => void;
+    toSource: (options?: any) => string;
+    toJSON: (options?: any) => string;
+    ast: AST;
+  }
+}
+
 export function load(src) {
-  const ast = toAst(src)
-  const root = ast.nodes()[0].program.body[0].expression
+  const ast = toAst(src);
+  const root = ast.nodes()[0].program.body[0].expression;
 
   // @param {Object|Array} value
   function write(value) {
-    root.right = writeValue(root.right, value)
+    root.right = writeValue(root.right, value);
   }
 
   function toSource(options = {} as any) {
@@ -18,15 +31,16 @@ export function load(src) {
         quote: 'single',
         trailingComma: true,
       },
-      options
-    )
+      options,
+    );
 
-    const sourceAst = (options.quoteKeys === undefined)
-      ? ast // @ts-ignore
-      : setKeyQuoteUsage(ast, options.quoteKeys)
+    const sourceAst =
+      options.quoteKeys === undefined
+        ? ast // @ts-ignore
+        : setKeyQuoteUsage(ast, options.quoteKeys);
 
     // strip the "x=" prefix
-    return sourceAst.toSource(options).replace(/^x=([{\[])/m, '$1')
+    return sourceAst.toSource(options).replace(/^x=([{\[])/m, '$1');
   }
 
   function toJSON(options = {}) {
@@ -35,25 +49,25 @@ export function load(src) {
         {
           quote: 'double',
           trailingComma: false,
-          quoteKeys: true
+          quoteKeys: true,
         },
-        options
-      )
-    )
+        options,
+      ),
+    );
   }
 
-  return { write, toSource, toJSON, ast: jscodeshift(root.right) }
+  return { write, toSource, toJSON, ast: jscodeshift(root.right) };
 }
 
 function toAst(src) {
   // find the start of the outermost array or object
-  const expressionStart = src.match(/^\s*[{\[]/m)
+  const expressionStart = src.match(/^\s*[{\[]/m);
   if (expressionStart) {
     // hackily insert "x=" so the JSON5 becomes valid JavaScript
-    const astSrc = src.replace(/^\s*([{\[])/m, 'x=$1')
-    return jscodeshift(astSrc)
+    const astSrc = src.replace(/^\s*([{\[])/m, 'x=$1');
+    return jscodeshift(astSrc);
   }
 
   // no array or object exist in the JSON5
-  return jscodeshift('x={}')
+  return jscodeshift('x={}');
 }
