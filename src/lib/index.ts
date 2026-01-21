@@ -7,12 +7,20 @@ export namespace JSON5EditorExampleNamespace {
     jscodeshift.ObjectExpression | jscodeshift.ArrayExpression
   >;
 
+  //#region @browser
+  export type ASTBrowser = jscodeshift.Collection<
+    jscodeshift.ObjectExpression | jscodeshift.ArrayExpression
+  >;
+  //#endregion
+
+  //#region @backend
   export interface LoadResult {
     write: (value: Object | Array<any>) => void;
     toSource: (options?: any) => string;
     toJSON: (options?: any) => string;
     ast: AST;
   }
+  //#endregion
 }
 
 export function load(src) {
