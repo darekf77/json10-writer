@@ -2,10 +2,18 @@ import * as jscodeshift from 'jscodeshift';
 import { writeValue } from './writeValue';
 import { setKeyQuoteUsage } from './setKeyQuoteUsage';
 
-export namespace JSON5EditorExampleNamespace {
+export namespace DummyNamespace {
+
+  export namespace DepepNs {
+
+    export namespace DepepErNs {
+      export const aa = '32';;
+    }
+  }
   export type AST = jscodeshift.Collection<
     jscodeshift.ObjectExpression | jscodeshift.ArrayExpression
   >;
+
 
   //#region @browser
   export type ASTBrowser = jscodeshift.Collection<
@@ -22,6 +30,16 @@ export namespace JSON5EditorExampleNamespace {
   }
   //#endregion
 }
+
+export function dummyFn() {
+  console.log(DummyNamespace.DepepNs.DepepErNs.aa)
+
+
+  const aaasd = (DummyNamespace.
+  DepepNs
+  .DepepErNs.aa === '32')
+}
+
 
 export function load(src) {
   const ast = toAst(src);
