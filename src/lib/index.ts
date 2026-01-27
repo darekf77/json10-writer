@@ -1,18 +1,22 @@
-import * as jscodeshift from 'jscodeshift';
-import { writeValue } from './writeValue';
-import { setKeyQuoteUsage } from './setKeyQuoteUsage';
+import { writeValue } from './writeValue'; // @backend
+import { setKeyQuoteUsage } from './setKeyQuoteUsage'; // @backend
 
+//#region @backend
+const jscodeshift: import('jscodeshift') =
+  require('jscodeshift').default ?? require('jscodeshift');
+//#endregion
 
 export function load(src) {
+  //#region @backendFunc
   const ast = toAst(src);
   const root = ast.nodes()[0].program.body[0].expression;
 
   // @param {Object|Array} value
-  function write(value) {
+  const write = value => {
     root.right = writeValue(root.right, value);
-  }
+  };
 
-  function toSource(options = {} as any) {
+  const toSource = (options = {} as any) => {
     // set default options
     options = Object.assign(
       {
@@ -29,9 +33,9 @@ export function load(src) {
 
     // strip the "x=" prefix
     return sourceAst.toSource(options).replace(/^x=([{\[])/m, '$1');
-  }
+  };
 
-  function toJSON(options = {}) {
+  const toJSON = (options = {}) => {
     return toSource(
       Object.assign(
         {
@@ -42,12 +46,14 @@ export function load(src) {
         options,
       ),
     );
-  }
+  };
 
   return { write, toSource, toJSON, ast: jscodeshift(root.right) };
+  //#endregion
 }
 
 function toAst(src) {
+  //#region @backendFunc
   // find the start of the outermost array or object
   const expressionStart = src.match(/^\s*[{\[]/m);
   if (expressionStart) {
@@ -58,4 +64,5 @@ function toAst(src) {
 
   // no array or object exist in the JSON5
   return jscodeshift('x={}');
+  //#endregion
 }
